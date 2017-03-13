@@ -1,0 +1,60 @@
+.flare-card {
+  border: 2px solid black;
+  border-radius: 1em;
+  padding: 15px;
+  text-align: center;
+}
+
+
+div.flare-text-box {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+div.yellow-flare-bg {
+  background: rgba(235,230,136,0.7);
+  box-shadow: 0px 0px 10px 5px rgba(235,230,136,0.7);
+}
+
+div.blue-flare-bg {
+   background: rgba(131, 207, 255, 0.5);
+  box-shadow: 0px 0px 10px 5px rgba(131, 207, 255, 0.5);
+}
+
+p.flare-text {
+  font-family: 'Alegreya', serif;
+}
+
+.player-role {
+  border: 1px solid rgba(50, 50, 50, 1);
+  background: linear-gradient(rgba(150, 220, 240, 1),rgba(110, 180, 240, 1));
+  border-radius: 1em;
+}
+
+.player-phase {
+  border: 1px solid rgba(50, 50, 50, 1);
+  background: linear-gradient(rgba(150, 0, 0, 1),rgba(150, 50, 50, 1));
+  border-radius:  1em;
+
+}
+
+.white {
+    color: white;
+}
+
+.border {
+  border: 2px solid black;
+}
+
+
+.capitalize {
+   text-transform: uppercase;
+   font-size: 0.60em;
+}
+
+.small-caps{
+    font-size: 1.5em;
+    font-variant:small-caps;
+    font-weight:bold;
+}
