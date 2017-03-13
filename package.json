@@ -2,6 +2,7 @@
   "name": "kosminen",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jabbegit.github.io/kosminen",
   "dependencies": {
     "ramda": "^0.23.0",
     "react": "^15.4.2",
