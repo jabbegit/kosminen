@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 import * as _ from 'ramda';
 import './App.css';
+import isMobile from 'ismobilejs'
 import FlareCard from './FlareCard';
 
 const cosmicFlaresData = [
@@ -118,6 +119,7 @@ class App extends Component {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
+        focusInputOnSuggestionClick={!isMobile}
         />
 
 

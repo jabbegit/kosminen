@@ -1,13 +1,13 @@
 .flare-card {
-  border: 2px solid black;
+  border: 2px solid lightslategray;
   border-radius: 1em;
   padding: 15px;
+  margin: 5px;
   text-align: center;
 }
 
 
 div.flare-text-box {
-  border-radius: 10px;
   padding: 10px;
 }
 
@@ -24,6 +24,7 @@ div.blue-flare-bg {
 
 p.flare-text {
   font-family: 'Alegreya', serif;
+  font-size: 1.1em;
 }
 
 .player-role {
@@ -47,7 +48,6 @@ p.flare-text {
   border: 2px solid black;
 }
 
-
 .capitalize {
    text-transform: uppercase;
    font-size: 0.60em;
@@ -56,5 +56,6 @@ p.flare-text {
 .small-caps{
     font-size: 1.5em;
     font-variant:small-caps;
-    font-weight:bold;
+    font-weight:normal;
+
 }

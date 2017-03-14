@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://jabbegit.github.io/kosminen",
   "dependencies": {
+    "ismobilejs": "^0.4.0",
     "ramda": "^0.23.0",
     "react": "^15.4.2",
     "react-autosuggest": "^9.0.0",
@@ -19,6 +20,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "clean": "rm -rf node_modules/gh-pages/.cache"
   }
 }
