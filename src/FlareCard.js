@@ -63,8 +63,16 @@ class FlarePlayer extends React.Component {
 
   getPlayerDescription = (playerName) => {
     const playerDescriptions = {
-      "Main": "Vain pääpelaaja",
-      "Ally": "Liittolainen"
+      "Main": "Pääpelaaja",
+      "Ally": "Liittolainen",
+      "Main, Ally": "Pääpelaaja tai liittolainen",
+      "Any": "Kuka tahansa",
+      "Offensive ally": "Hyökkäyksen liittolainen",
+      "Offense": "Hyökkäävä pääpelaaja",
+      "NOT Main, NOT Ally": "EI pääpelaaja, EI liittolainen",
+      "Offense, Ally": "Hyökkäävä pääpelaaja tai liittolainen",
+      "NOT Main": "EI pääpelaaja",
+      "Defense": "Puolustava pääpelaaja"
     };
 
     if (_.has(this.props.player, playerDescriptions)) {
