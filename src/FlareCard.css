@@ -59,3 +59,10 @@ p.flare-text {
     font-weight:normal;
 
 }
+
+.small-small-caps{
+    font-size: 1.0em;
+    font-variant:small-caps;
+    font-weight:normal;
+
+}

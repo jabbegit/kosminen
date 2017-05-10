@@ -17,7 +17,7 @@ class FlareCard extends React.Component {
         </p>
 
         <FlarePowerText
-
+          alienName={wildFlare.name}
           powerName={wildFlare.power}
           text={wildFlare.text}
           css="flare-text-box yellow-flare-bg"
@@ -28,7 +28,7 @@ class FlareCard extends React.Component {
         </p>
 
         <FlarePowerText
-
+          alienName={wildFlare.name}
           powerName={superFlare.power}
           text={superFlare.text}
           css="flare-text-box blue-flare-bg"
@@ -41,6 +41,19 @@ class FlareCard extends React.Component {
 }
 
 class FlarePowerText extends Component {
+  
+  getPowerDescription = (powerName) => {
+      const powerDescriptions = {
+      "Wild" : "Jos et ole",
+      "Super" : "Jos olet"
+    };
+    
+    if (_.has(this.props.powerName, powerDescriptions)) {
+      return `(${powerDescriptions[this.props.powerName]} ${this.props.alienName})`;
+    }
+    return "";
+  }
+  
   render() {
 
     return(
@@ -48,6 +61,9 @@ class FlarePowerText extends Component {
         <span className="small-caps">
           {this.props.powerName}
         </span>
+        
+        <div className="small-small-caps">{this.getPowerDescription(this.props.powerName)}</div>
+
         <p className="flare-text">
           {this.props.text}
         </p>
