@@ -4,6 +4,7 @@ import * as _ from 'ramda';
 import './App.css';
 import isMobile from 'ismobilejs'
 import FlareCard from './FlareCard';
+import AlienSheet from './AlienSheet';
 
 const cosmicFlaresData = [{"name":"Amoeba","color":"Yellow","power":"Wild","who":"Main","when":"Planning","text":"Ennen yhteenottokorttien valintaa, voit lisätä tai vähentää yhteenotossa olevien alustesi määrää enintään neljällä. Sinulla voi näin olla enemmän kuin neljä alusta yhteenotossa."},
 {"name":"Amoeba","color":"Yellow","power":"Super","who":"Ally","when":"Planning","text":"Voit käyttää kykyäsi ollessasi liittolainen"},
@@ -88,6 +89,14 @@ const cosmicFlaresData = [{"name":"Amoeba","color":"Yellow","power":"Wild","who"
 ];
 
 
+const cosmicAliensData = [{"name":"Amoeba","color":"yellow","summary":"Rajoittamaton alusten liikkuminen.","who":"Main","when":"Planning","mandatory":"no","text":"**Sinulla on kyky valua kuin lima.** Yhteenottokorttien valitsemisen jälkeen, ennen paljastamista, jos sinulla on ainakin yksi alus yhteenotossa, sinä **_voit käyttää_** tätä kykyä lisäämään tai vähentämään yhteenotossa olevien alustesi määrää. Voit siirtää jotkut tai kaikki aluksesi omiin siirtokuntiisi tai voit lisätä haluamasi määrän aluksia siirtokunnistasi (saat ylittää neljän maksimimäärän)."},
+{"name":"Anti-Matter","color":"yellow","summary":"Pienempi tulos voittaa.","who":"Main","when":"Reveal","mandatory":"yes","text":"**Sinulla on negaation kyky.** Jos sekä sinä, että vastustajasi paljastavat hyökkäyskortin **_käytä_** tätä voimaa siihen, että pienempi tulos voittaa. Lisäksi, kun tätä kykyä **_käytetään_**, sekä sinun, että hyökkäävien ja puolustavien liittolaisten alusten määrä vähennetään aina kunkin puolen tuloksesta. Vastustajasi tulos lasketaan kuitenkin normaalisti."},
+{"name":"Barbarian","color":"green","summary":"Tuhoaa vastustajan käden.","who":"Offense","when":"Resolution","mandatory":"yes","text":"**Sinulla on kyky ryöstellä.** Jos voitat yhteenoton hyökkääjänä, ennen (mahdollisen) hyvityksen keräämistä, **_käytä_** tätä kykyä vastustajasi korttien ryöstämiseen. Katso vastustajasi käsi ja ota kortti jokaista yhteenotossa ollutta alustasi kohti. Pistä loput kädestä poistopakkaan."},
+{"name":"Calculator","color":"yellow","summary":"Vähentää suurempiarvoisesta hyökkäyskortista.","who":"Main","when":"Planning","mandatory":"no","text":"**Sinulla on kyky tasoittaa tilanne.** Yhteenottokorttien valitsemisen jälkeen, ennen paljastamista, **_voit käyttää_** tätä kykyä ja julistaa "},
+{"name":"Chosen","color":"green","summary":"Ottaa uuden yhteenottokortin.","who":"Main","when":"Reveal","mandatory":"no","text":"**Sinulla on kyky kutsua yliluonnollista apua.** Yhteenottokorttien paljastamisen jälkeen **_voit käyttää_** tätä kykyä ja pyytää apua korkeammalta yhden kerran jokaisessa yhteenotossa. Ota kolme korttia pakasta. Jos yksikään ei ole yhteenottokortti, pistä kortit poistopakkaan (apua ei tule). Jos nostat yhteenottokortin, voit korvata alkuperäisen paljastamasi kortin sillä (alkuperäinen menee poistopakkaan). Jos alkuperäinen korttisi on hyökkäys ja valitset toisen hyökkäyskortin avuksi, tämä yliluonnollinen apu voi joko korvata tai sen arvon voi lisätä alkuperäiseen korttiisi (saat valita). Kaikki muut avuksi nostetut kortit laitetaan poistopakkaan ja yhteenotto ratkaistaan uuden kortin tai uuden yhteistuloksen avulla."},
+{"name":"Citadel","color":"red","summary":"Rakentaa planeetoille linnoituksia.","who":"Any","when":"Planning","mandatory":"no","text":"**Sinulla on kyky linnoittaa.** Jokaisessa yhteenotossa, kun kohtalokortti on katsottu, voit pelata kädestäsi hyökkäyskortin arvopuoli ylöspäin minkä tahansa planeetan viereen linnoitukseksi. Jos planeetta, jolla on yksi tai useampi linnoitus, joutuu kohteeksi, **_voit käyttää_** kykyäsi ennen yhteenottokorttien paljastamista  ja aktivoida kaikki kohdeplaneetan linnoitukset. Jos teet niin, lisää linnoitusten arvot puolustuksen tulokseen tässä yhteenotossa. Jos aktivoit planeetan linnoitukset ja puolustus häviää, laita linnoitukset poistopakkaan. Muussa tapauksessa ne jäävät paikoilleen. Jos planeetta tuhoutuu tai alien-arkki poistuu pelistä, pistä *kaikki* linnoitukset poistopakkaan."}
+];
+
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
 function escapeRegexCharacters(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -116,22 +125,30 @@ function renderSuggestion(suggestion) {
   );
 }
 
-class FlareCardContainer extends Component {
+class CosmicDataContainer extends Component {
   render() {
 
-    if (this.props.cardShown == null) return(<div></div>);
+    if (this.props.alienName == null) return(<div></div>);
 
-    let isWild = _.whereEq({"name":this.props.cardShown, "power":"Wild"});
-    let isSuper = _.whereEq({"name":this.props.cardShown, "power":"Super"});
+    let isWild = _.whereEq({"name":this.props.alienName, "power":"Wild"});
+    let isSuper = _.whereEq({"name":this.props.alienName, "power":"Super"});
 
     let wildFlareCard = _.filter(isWild, cosmicFlaresData)[0];
     let superFlareCard = _.filter(isSuper, cosmicFlaresData)[0];
 
+    let alienData = _.filter(_.propEq("name", this.props.alienName), cosmicAliensData)[0];
+
     return (
-      <FlareCard
-        wildFlare={wildFlareCard}
-        superFlare={superFlareCard}
-      />
+      <div>
+        <FlareCard
+          wildFlare={wildFlareCard}
+          superFlare={superFlareCard}
+        />
+
+        <AlienSheet 
+          alienData={alienData}
+        />
+      </div>
     );
   }
 }
@@ -194,7 +211,7 @@ class App extends Component {
         />
 
 
-      <FlareCardContainer cardShown={this.state.flareCardShown}/>
+      <CosmicDataContainer alienName={this.state.flareCardShown}/>
 
       </div>
 

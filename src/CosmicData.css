@@ -1,0 +1,6 @@
+div.card-border {
+  border: 2px solid lightslategray;
+  border-radius: 1em;
+  padding: 15px;
+  margin: 5px;
+}

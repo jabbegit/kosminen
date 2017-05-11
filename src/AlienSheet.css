@@ -1,0 +1,9 @@
+.sheet-text {
+    font-family: 'Alegreya', serif;
+    font-size: 1em;
+}
+
+div.sheet {
+
+      box-shadow: inset 0px 0px 38px 0px rgba(0,0,0,0.62);
+}
