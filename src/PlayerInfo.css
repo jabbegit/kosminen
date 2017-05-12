@@ -1,0 +1,13 @@
+.player-role {
+  border: 1px solid rgba(50, 50, 50, 1);
+  background: linear-gradient(rgba(150, 220, 240, 1),rgba(110, 180, 240, 1));
+  border-radius: 1em;
+  text-align: center;
+}
+
+.player-phase {
+  border: 1px solid rgba(50, 50, 50, 1);
+  background: linear-gradient(rgba(150, 0, 0, 1),rgba(150, 50, 50, 1));
+  border-radius:  1em;
+  text-align: center;
+}

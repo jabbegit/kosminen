@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './FlareCard.css';
 import * as _ from 'ramda';
+import PlayerInfo from './PlayerInfo'
 
 class FlareCard extends React.Component {
   render() {
@@ -8,7 +9,7 @@ class FlareCard extends React.Component {
     const wildFlare = this.props.wildFlare;
     const superFlare = this.props.superFlare;
 
-    return(
+    return (
       <div className="flare-card">
         <span className="small-caps">
           {wildFlare.name}
@@ -41,83 +42,42 @@ class FlareCard extends React.Component {
 }
 
 class FlarePowerText extends Component {
-  
+
   getPowerDescription = (powerName) => {
-      const powerDescriptions = {
-      "Wild" : "Jos et ole",
-      "Super" : "Jos olet"
+    const powerDescriptions = {
+      "Wild": "Jos et ole",
+      "Super": "Jos olet"
     };
-    
+
     if (_.has(this.props.powerName, powerDescriptions)) {
       return `(${powerDescriptions[this.props.powerName]} ${this.props.alienName})`;
     }
     return "";
   }
-  
+
   render() {
 
-    return(
+    return (
       <div className={this.props.css}>
         <span className="small-caps">
           {this.props.powerName}
         </span>
-        
+
         <div className="small-small-caps">{this.getPowerDescription(this.props.powerName)}</div>
 
         <p className="flare-text">
           {this.props.text}
         </p>
-        <FlarePlayer
+        <PlayerInfo
           player={this.props.player}
-          when={this.props.when}/>
+          when={this.props.when} />
       </div>
     );
   }
 }
 
-class FlarePlayer extends React.Component {
 
-  getPlayerDescription = (playerName) => {
-    const playerDescriptions = {
-      "Main": "Pääpelaaja",
-      "Ally": "Liittolainen",
-      "Main, Ally": "Pääpelaaja tai liittolainen",
-      "Any": "Kuka tahansa",
-      "Offensive ally": "Hyökkäyksen liittolainen",
-      "Offense": "Hyökkäävä pääpelaaja",
-      "NOT Main, NOT Ally": "EI pääpelaaja, EI liittolainen",
-      "Offense, Ally": "Hyökkäävä pääpelaaja tai liittolainen",
-      "NOT Main": "EI pääpelaaja",
-      "Defense": "Puolustava pääpelaaja"
-    };
 
-    if (_.has(this.props.player, playerDescriptions)) {
-      return playerDescriptions[this.props.player];
-    }
 
-    return this.props.player;
-  }
-
-  render () {
-
-    return(
-      <div>
-        <div className="player-role">
-          <span className="capitalize">
-            {this.getPlayerDescription(this.props.player)}
-          </span>
-
-        </div>
-        <div className="player-phase">
-          <span className="capitalize white">
-            {this.props.when}
-          </span>
-
-        </div>
-
-      </div>
-    );
-  }
-}
 
 export default FlareCard;
