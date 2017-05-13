@@ -1,5 +1,4 @@
-/*@import url('https://fonts.googleapis.com/css?family=Alegreya|Montserrat');*/
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,700,700i|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Montserrat');
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -16,7 +15,7 @@ body {
   height: 25px;
   padding-left: 10px;
   margin: 5px;
-  font-family: Alegreya, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 300;
   font-size: 16px;
   border: 1px solid #aaa;
@@ -44,7 +43,7 @@ body {
   width: 90%;
   border: 1px solid #aaa;
   background-color: #fff;
-  font-family: Alegreya, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 300;
   font-size: 16px;
   border-bottom-left-radius: 4px;

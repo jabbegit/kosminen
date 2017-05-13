@@ -1,10 +1,10 @@
-
 .sheet-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2em;
+    font-family: 'Lora', serif;
+    font-size: 0.95em;
+    line-height: 1.5em;
+    letter-spacing: 0.2px;
 }
 
 div.sheet {
-
-      box-shadow: inset 0px 0px 38px 0px rgba(0,0,0,0.62);
+    box-shadow: inset 0px 0px 38px 0px rgba(0,0,0,0.62);
 }
