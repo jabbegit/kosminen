@@ -1,0 +1,26 @@
+div.artifact-card {
+  border-radius: 1em;
+  padding: 20px;
+  margin: 10px;
+  background: linear-gradient(to bottom, #094982 0%,#4067aa 29%,#4377b7 63%,#4067aa 81%,#094982 100%);
+}
+
+div.artifact-content {
+  background: white;
+  border-radius: 1em;
+  border: 2px solid gray;
+  padding: 15px;
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+div.card-caption {
+  background: white;
+  border-radius: inherit;
+  border: 2px solid gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  font-variant:small-caps;
+  margin-bottom: 10px;
+  box-shadow: inset 0px 4px 13px 0px rgba(0,0,0,0.75);
+  padding: 2px;
+}

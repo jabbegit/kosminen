@@ -6,6 +6,8 @@ import isMobile from 'ismobilejs'
 import FlareCard from './FlareCard';
 import AlienSheet from './AlienSheet';
 
+import ArtifactCard from './ArtifactCard';
+
 const cosmicFlaresData = [{ "name": "Amoeba", "color": "Yellow", "power": "Wild", "who": "Main", "when": "Planning", "text": "Ennen yhteenottokorttien valintaa, voit lisätä tai vähentää yhteenotossa olevien alustesi määrää enintään neljällä. Sinulla voi näin olla enemmän kuin neljä alusta yhteenotossa." },
 { "name": "Amoeba", "color": "Yellow", "power": "Super", "who": "Ally", "when": "Planning", "text": "Voit käyttää kykyäsi ollessasi liittolainen" },
 { "name": "Anti-Matter", "color": "Yellow", "power": "Wild", "who": "Main, Ally", "when": "Any", "text": "Ollessasi pääpelaaja tai liittolainen, kun toinen pelaaja yrittää käyttää yleisflarea, voit estää tämän. Voi käyttää vain yhtä flarea vastaan per yhteenotto." },
@@ -101,6 +103,7 @@ const cosmicAliensData = [{"name":"Amoeba","color":"yellow","summary":"Rajoittam
 {"name":"Fido","color":"yellow","summary":"Noutaa pois heitetyt kortit","who":"Any","when":"Resolution","mandatory":"no","text":"**Sinulla on kyky noutaa.** Kun yhteenottokortit laitetaan poistopakkaan yhteenoton lopuksi, **_voit käyttää_** tätä kykyä ja ottaa yhden poisheitetyn yhteenottokortin ja tarjota sitä toiselle pelaajalle. Jos hän ei hyväksi voit pitää sen tai laittaa poistopakkaan. Jos hän hyväksyy kortin, hän pitää sen ja sinä voit ottaa joko yhden aluksesi warpista tai kortin pakasta. (Voit noutaa vain yhteenottokortin, jota käytettiin yhteenoton ratkaisemisessa, et sellaista, joka pistettiin pois muusta syystä)."},
 {"name":"Filch","color":"green","summary":"Ottaa vastustajan käytetyn kortin","who":"Main","when":"Resolution","mandatory":"no","text":"**Sinulla on kyky varastaa.** Kun yhteenotto kortit laitetaan poistopakkaan yhteenoton lopuksi,  **_voit käyttää_** tätä kykyä ja ottaa vastustajasi kortin poistopakasta käteesi. (Jos vastustajasi yhteenottokortti vaihtui johonkin toiseen, voit ottaa kortin, jonka hän pelasi viimeisimpänä.)"}];
 
+
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
 function escapeRegexCharacters(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -152,13 +155,17 @@ class CosmicDataContainer extends Component {
     let wildFlareCard = _.filter(isWild, cosmicFlaresData)[0];
     let superFlareCard = _.filter(isSuper, cosmicFlaresData)[0];
    
+    const artifactData = {"name":"Card Zap","who":"Any","when":"Any","text":"**Mitätöi kortin.** Tämän kortin voi pelata milloin vain ja mitätöidä flaren tai artefaktin sillä hetkellä, kun toinen pelaaja yrittää sellaista käyttää. Mitätöity flare tai artefakti täytyy laittaa poistopakkaan."};
+
     return (
       <div>
+        <ArtifactCard artifact={artifactData} />
         <FlareCard
           wildFlare={wildFlareCard}
           superFlare={superFlareCard}
         />
         {this.getAlienSheet()}
+
       </div>
     );
   }
