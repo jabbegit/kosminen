@@ -11,16 +11,24 @@ div.artifact-content {
   border: 2px solid gray;
   padding: 15px;
   box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  
 }
 
 div.card-caption {
   background: white;
   border-radius: inherit;
   border: 2px solid gray;
+  box-shadow: inset 0px 4px 13px 0px rgba(0,0,0,0.75);
+
+  margin-bottom: 10px;
+  padding: 2px;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9em;
   font-variant:small-caps;
-  margin-bottom: 10px;
-  box-shadow: inset 0px 4px 13px 0px rgba(0,0,0,0.75);
-  padding: 2px;
+  text-align: center;
+}
+
+.centered {
+  text-align: center;  
 }
