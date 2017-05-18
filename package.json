@@ -4,16 +4,15 @@
   "private": true,
   "homepage": "https://jabbegit.github.io/kosminen",
   "dependencies": {
-    "ismobilejs": "^0.4.0",
+    "ismobilejs": "^0.4.1",
     "ramda": "^0.23.0",
-    "react": "^15.4.2",
-    "react-autosuggest": "^9.0.0",
-    "react-dom": "^15.4.2",
+    "react": "^15.5.4",
+    "react-autosuggest": "^9.0.1",
+    "react-dom": "^15.5.4",
     "react-markdown": "^2.5.0"
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.0.1",
-    "gh-pages": "^0.12.0",
+    "gh-pages": "^1.0.0",
     "react-scripts": "0.9.5"
   },
   "scripts": {
