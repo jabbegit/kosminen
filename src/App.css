@@ -65,3 +65,17 @@ body {
 .react-autosuggest__suggestion--highlighted {
   background-color: #ddd;
 }
+
+.react-autosuggest__section-container {
+  border-top: 1px dashed #ccc;
+}
+
+.react-autosuggest__section-container--first {
+  border-top: 0;
+}
+
+.react-autosuggest__section-title {
+  padding: 10px 0 0 10px;
+  font-size: 12px;
+  color: #777;
+}

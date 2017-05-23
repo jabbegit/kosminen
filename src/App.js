@@ -104,33 +104,19 @@ const cosmicAliensData = [{ "name": "Amoeba", "color": "yellow", "summary": "Raj
 { "name": "Filch", "color": "green", "summary": "Ottaa vastustajan käytetyn kortin", "who": "Main", "when": "Resolution", "mandatory": "no", "text": "**Sinulla on kyky varastaa.** Kun yhteenotto kortit laitetaan poistopakkaan yhteenoton lopuksi,  **_voit käyttää_** tätä kykyä ja ottaa vastustajasi kortin poistopakasta käteesi. (Jos vastustajasi yhteenottokortti vaihtui johonkin toiseen, voit ottaa kortin, jonka hän pelasi viimeisimpänä.)" }];
 
 
-// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
-function escapeRegexCharacters(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
+const artifactData = [{"name":"Card Zap","who":"Any","when":"Any","text":"**Mitätöi kortin.** Tämän kortin voi pelata milloin vain ja mitätöidä flaren tai artefaktin sillä hetkellä, kun toinen pelaaja yrittää sellaista käyttää. Mitätöity flare tai artefakti täytyy laittaa poistopakkaan."},
+{"name":"Cosmic Zap","who":"Any","when":"Any","text":"**Pysäyttää kyvyn.** Pelaa milloin tahansa peruuttamaan jonkin alienin kyvyn, mukaan lukien omasi. Tätä kykyä ei saa käyttää uudelleen nykyisen yhteenoton aikana."},
+{"name":"Emotion Control","who":"Any","when":"Reveal","text":"**Muuttaa hyökkäystä.** Pelaa, kun yhteenottokortit on paljastettu ja tämän jälkeen kaikki hyökkäyskortit ovat neuvottelukortteja. Pääpelaajien on sitten pyrittävä tekemään sopimus."},
+{"name":"Force Field","who":"Any","when":"Alliance","text":"**Pysäyttää liittolaiset.** Pelaa sen jälkeen, kun liittoutumat on muodostettu ja peruuta jonkun tai kaikkien pelaajien liittoutumat. Peruutetut liittolaiset palauttavat aluksensa mihin tahansa siirtokuntaansa."},
+{"name":"Ion Gas","who":"Any","when":"Resolution","text":"**Estää korvaukset ja palkkiot.** Pelaa sen jälkeen, kun yhteenoton voittaja on määritetty. Mitään korvausta tai palkkioita ei voi kerätä tässä yhteenotossa."},
+{"name":"Mobius Tubes","who":"Offence","when":"Regroup","text":"**Vapauttaa alukset.** Pelaa heti yhteenottosi alussa vapauttamalla kaikkien pelaajien alukset warpista. Vapaat alukset palaavat mihin tahansa omistajiensa siirtokuntiin."},
+{"name":"Plague","who":"Any","when":"Regroup","text":"**Vahingoittaa pelaajaa.** Pelaa yhteenoton alussa ja valitse pelaaja (jopa itsesi). Valittu pelaaja menettää kolme alusta valintansa mukaan, ja hän poistaa kädestään yhden kortin jokaista tyyppiä  (hyökkäys, neuvottelu, morph, artifact, flare.. )."},
+{"name":"Quash","who":"Any","when":"Resolution","text":"**Pilaa neuvottelut.** Pelaa onnistuneen neuvottelun jälkeen ja pura sopimus. Neuvottelijat kärsivät rangaistuksen epäonnistuneesta sopimuksesta."}];
 
-function getSuggestions(value) {
-  const escapedValue = escapeRegexCharacters(value.trim());
-
-  if (escapedValue === '') {
-    return [];
-  }
-
-  const regex = new RegExp('^' + escapedValue, 'i');
-
-  const wildFlares = _.filter(_.propEq('power', 'Wild'), cosmicFlaresData);
-  return wildFlares.filter(flare => regex.test(flare.name));
-}
-
-function getSuggestionValue(suggestion) {
-  return suggestion.name;
-}
-
-function renderSuggestion(suggestion) {
-  return (
-    <span>{suggestion.name}</span>
-  );
-}
+const cosmicDb = [
+    {title:'Alien', data:cosmicAliensData},
+    {title:'Artefakti', data:artifactData}
+];
 
 class CosmicDataContainer extends Component {
 
@@ -154,7 +140,7 @@ class CosmicDataContainer extends Component {
 
     let wildFlareCard = _.filter(isWild, cosmicFlaresData)[0];
     let superFlareCard = _.filter(isSuper, cosmicFlaresData)[0];
-
+        //<ArtifactCard artifact={artifactData} />
 
     return (
       <div>
@@ -170,6 +156,59 @@ class CosmicDataContainer extends Component {
   }
 }
 
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
+function escapeRegexCharacters(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const getFiltered = (value, entry) => {
+
+    const regex = new RegExp('^' + value, 'i');
+    const isMatch = _.compose(_.test(regex), _.prop('name'));
+    const filteredEntries = _.filter(isMatch, entry.data);
+
+    return {
+        title:entry.title,
+        suggestions:filteredEntries
+    };
+}
+
+const getFilteredSection = _.curry(getFiltered);
+
+function getSuggestions(value) {
+  const escapedStr = escapeRegexCharacters(value.trim());
+
+  if (escapedStr === '') {
+    return [];
+  }
+
+  const allFilteredSections = _.map(getFilteredSection(value), cosmicDb);
+  const sectionsToShow = allFilteredSections.filter(section => section.suggestions.length > 0 );
+
+  return sectionsToShow;
+    
+  //return _.filter(isNameMatch, cosmicAliensData);
+}
+
+function getSuggestionValue(suggestion) {
+  return suggestion.name;
+}
+
+function renderSuggestion(suggestion) {
+  return (
+    <span>{suggestion.name}</span>
+  );
+}
+
+function renderSectionTitle(section) {
+  return (
+    <strong>{section.title}</strong>
+  );
+}
+
+function getSectionSuggestions(section) {
+  return section.suggestions;
+}
 
 class App extends Component {
   constructor() {
@@ -214,23 +253,23 @@ class App extends Component {
       onChange: this.onChange
     };
 
-    const artifactData = { "name": "Card Zap", "who": "Any", "when": "Any", "text": "**Mitätöi kortin.** Tämän kortin voi pelata milloin vain ja mitätöidä flaren tai artefaktin sillä hetkellä, kun toinen pelaaja yrittää sellaista käyttää. Mitätöity flare tai artefakti täytyy laittaa poistopakkaan." };
-
-
     return (
       <div>
         <Autosuggest
+          multiSection={true}
           suggestions={suggestions}
           onSuggestionSelected={this.onSuggestionSelected}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.onSuggestionsClearRequested}
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
+          renderSectionTitle={renderSectionTitle}
+          getSectionSuggestions={getSectionSuggestions}
           inputProps={inputProps}
           focusInputOnSuggestionClick={!isMobile}
         />
 
-        <ArtifactCard artifact={artifactData} />
+
         <CosmicDataContainer alienName={this.state.flareCardShown} />
 
       </div>
