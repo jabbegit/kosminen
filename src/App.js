@@ -91,27 +91,27 @@ const cosmicFlaresData = [{ "name": "Amoeba", "color": "Yellow", "power": "Wild"
 ];
 
 
-const cosmicAliensData = [{ "name": "Amoeba", "color": "yellow", "summary": "Rajoittamaton alusten liikkuminen", "who": "Main", "when": "Planning", "mandatory": "no", "text": "**Sinulla on kyky valua kuin lima.** Yhteenottokorttien valitsemisen jälkeen, ennen paljastamista, jos sinulla on ainakin yksi alus yhteenotossa, sinä **_voit käyttää_** tätä kykyä lisäämään tai vähentämään yhteenotossa olevien alustesi määrää. Voit siirtää jotkut tai kaikki aluksesi omiin siirtokuntiisi tai voit lisätä haluamasi määrän aluksia siirtokunnistasi (saat ylittää neljän maksimimäärän)." },
-{ "name": "Anti-Matter", "color": "yellow", "summary": "Pienempi tulos voittaa", "who": "Main", "when": "Reveal", "mandatory": "yes", "text": "**Sinulla on negaation kyky.** Jos sekä sinä, että vastustajasi paljastavat hyökkäyskortin **_käytä_** tätä voimaa siihen, että pienempi tulos voittaa. Lisäksi, kun tätä kykyä **_käytetään_**, sekä sinun, että hyökkäävien ja puolustavien liittolaisten alusten määrä vähennetään aina kunkin puolen tuloksesta. Vastustajasi tulos lasketaan kuitenkin normaalisti." },
-{ "name": "Barbarian", "color": "green", "summary": "Tuhoaa vastustajan käden", "who": "Offense", "when": "Resolution", "mandatory": "yes", "text": "**Sinulla on kyky ryöstellä.** Jos voitat yhteenoton hyökkääjänä, ennen (mahdollisen) hyvityksen keräämistä, **_käytä_** tätä kykyä vastustajasi korttien ryöstämiseen. Katso vastustajasi käsi ja ota kortti jokaista yhteenotossa ollutta alustasi kohti. Pistä loput kädestä poistopakkaan." },
-{ "name": "Calculator", "color": "yellow", "summary": "Vähentää suurempiarvoisesta hyökkäyskortista", "who": "Main", "when": "Planning", "mandatory": "no", "text": "**Sinulla on kyky tasoittaa tilanne.** Yhteenottokorttien valitsemisen jälkeen, ennen paljastamista, **_voit käyttää_** tätä kykyä ja julistaa 'tasoituksen'. Jos teet näin, ja kortit paljastuvat *eriarvoisiksi* hyökkäyskorteiksi, suuremmasta kortista vähennetään pienemmän arvo. Jos siis kortit olivat 15 ja 08, kortti 15 muuttuu 07:ksi ja 08 pysyy ennallaan. Yhteenoton tulos ratkaistaan tämän jälkeen normaalisti." },
-{ "name": "Chosen", "color": "green", "summary": "Ottaa uuden yhteenottokortin", "who": "Main", "when": "Reveal", "mandatory": "no", "text": "**Sinulla on kyky kutsua yliluonnollista apua.** Yhteenottokorttien paljastamisen jälkeen **_voit käyttää_** tätä kykyä ja pyytää apua korkeammalta yhden kerran jokaisessa yhteenotossa. Ota kolme korttia pakasta. Jos yksikään ei ole yhteenottokortti, pistä kortit poistopakkaan (apua ei tule). Jos nostat yhteenottokortin, voit korvata alkuperäisen paljastamasi kortin sillä (alkuperäinen menee poistopakkaan). Jos alkuperäinen korttisi on hyökkäys ja valitset toisen hyökkäyskortin avuksi, tämä yliluonnollinen apu voi joko korvata tai sen arvon voi lisätä alkuperäiseen korttiisi (saat valita). Kaikki muut avuksi nostetut kortit laitetaan poistopakkaan ja yhteenotto ratkaistaan uuden kortin tai uuden yhteistuloksen avulla." },
-{ "name": "Citadel", "color": "red", "summary": "Rakentaa planeetoille linnoituksia", "who": "Any", "when": "Planning", "mandatory": "no", "text": "**Sinulla on kyky linnoittaa.** Jokaisessa yhteenotossa, kun kohtalokortti on katsottu, voit pelata kädestäsi hyökkäyskortin arvopuoli ylöspäin minkä tahansa planeetan viereen linnoitukseksi. Jos planeetta, jolla on yksi tai useampi linnoitus, joutuu kohteeksi, **_voit käyttää_** kykyäsi ennen yhteenottokorttien paljastamista  ja aktivoida kaikki kohdeplaneetan linnoitukset. Jos teet niin, lisää linnoitusten arvot puolustuksen tulokseen tässä yhteenotossa. Jos aktivoit planeetan linnoitukset ja puolustus häviää, laita linnoitukset poistopakkaan. Muussa tapauksessa ne jäävät paikoilleen. Jos planeetta tuhoutuu tai alien-arkki poistuu pelistä, pistä *kaikki* linnoitukset poistopakkaan." },
-{ "name": "Clone", "color": "green", "summary": "Pitää oman yhteenottokorttinsa", "who": "Main", "when": "Resolution", "mandatory": "no", "text": "**Sinulla on kyky monistua.** Kun yhteenoton tulos on selvillä (ennen korvauksen ottamista), **_voit käyttää_** tätä kykyä ja lisätä  sinun puolesi yhteenottokortin käteesi, sen sijaan, että se laitettaisiin poistopakkaan." },
-{ "name": "Cudgel", "color": "green", "summary": "Vastustaja menettää enemmän aluksia", "who": "Main", "when": "Resolution", "mandatory": "yes", "text": "**Sinulla on kyky murskata.** Kun voitat yhteenoton, jossa pelasit hyökkäyskortin, **_käytä_** tätä kykyä ja pakota vastustajasi menettämään yhtä monta itse valitsemaansa alusta, kuin sinulla oli yhteenotossa. Hän menettää nämä alukset sekä ne, jotka normaalisti menettäisi." },
-{ "name": "Dictator", "color": "red", "summary": "Hallitsee Destiny-pakkaa", "who": "Not Offense", "when": "Destiny", "mandatory": "yes", "text": "**Sinulla on kyky olla komentaja.** Ennen destiny-kortin nostamista, **_käytä_** tätä kykyä: ota destiny-pakka, katso se läpi ja valitse yksi kortti. Tuo kortti pelataan aivan kuin hyökkääjä olisi itse sen nostanut.  Sinun vuorollasi, tai milloin vain kykysi zap'ätään, jäljellä olevat destiny-kortit sekoitetaan ja pelataan satunnainen kortti." },
-{ "name": "Fido", "color": "yellow", "summary": "Noutaa pois heitetyt kortit", "who": "Any", "when": "Resolution", "mandatory": "no", "text": "**Sinulla on kyky noutaa.** Kun yhteenottokortit laitetaan poistopakkaan yhteenoton lopuksi, **_voit käyttää_** tätä kykyä ja ottaa yhden poisheitetyn yhteenottokortin ja tarjota sitä toiselle pelaajalle. Jos hän ei hyväksi voit pitää sen tai laittaa poistopakkaan. Jos hän hyväksyy kortin, hän pitää sen ja sinä voit ottaa joko yhden aluksesi warpista tai kortin pakasta. (Voit noutaa vain yhteenottokortin, jota käytettiin yhteenoton ratkaisemisessa, et sellaista, joka pistettiin pois muusta syystä)." },
-{ "name": "Filch", "color": "green", "summary": "Ottaa vastustajan käytetyn kortin", "who": "Main", "when": "Resolution", "mandatory": "no", "text": "**Sinulla on kyky varastaa.** Kun yhteenotto kortit laitetaan poistopakkaan yhteenoton lopuksi,  **_voit käyttää_** tätä kykyä ja ottaa vastustajasi kortin poistopakasta käteesi. (Jos vastustajasi yhteenottokortti vaihtui johonkin toiseen, voit ottaa kortin, jonka hän pelasi viimeisimpänä.)" }];
+const cosmicAliensData = [{ "type": "alien", "name": "Amoeba", "color": "yellow", "summary": "Rajoittamaton alusten liikkuminen", "who": "Main", "when": "Planning", "mandatory": "no", "text": "**Sinulla on kyky valua kuin lima.** Yhteenottokorttien valitsemisen jälkeen, ennen paljastamista, jos sinulla on ainakin yksi alus yhteenotossa, sinä **_voit käyttää_** tätä kykyä lisäämään tai vähentämään yhteenotossa olevien alustesi määrää. Voit siirtää jotkut tai kaikki aluksesi omiin siirtokuntiisi tai voit lisätä haluamasi määrän aluksia siirtokunnistasi (saat ylittää neljän maksimimäärän)." },
+{ "type": "alien", "name": "Anti-Matter", "color": "yellow", "summary": "Pienempi tulos voittaa", "who": "Main", "when": "Reveal", "mandatory": "yes", "text": "**Sinulla on negaation kyky.** Jos sekä sinä, että vastustajasi paljastavat hyökkäyskortin **_käytä_** tätä voimaa siihen, että pienempi tulos voittaa. Lisäksi, kun tätä kykyä **_käytetään_**, sekä sinun, että hyökkäävien ja puolustavien liittolaisten alusten määrä vähennetään aina kunkin puolen tuloksesta. Vastustajasi tulos lasketaan kuitenkin normaalisti." },
+{ "type": "alien", "name": "Barbarian", "color": "green", "summary": "Tuhoaa vastustajan käden", "who": "Offense", "when": "Resolution", "mandatory": "yes", "text": "**Sinulla on kyky ryöstellä.** Jos voitat yhteenoton hyökkääjänä, ennen (mahdollisen) hyvityksen keräämistä, **_käytä_** tätä kykyä vastustajasi korttien ryöstämiseen. Katso vastustajasi käsi ja ota kortti jokaista yhteenotossa ollutta alustasi kohti. Pistä loput kädestä poistopakkaan." },
+{ "type": "alien", "name": "Calculator", "color": "yellow", "summary": "Vähentää suurempiarvoisesta hyökkäyskortista", "who": "Main", "when": "Planning", "mandatory": "no", "text": "**Sinulla on kyky tasoittaa tilanne.** Yhteenottokorttien valitsemisen jälkeen, ennen paljastamista, **_voit käyttää_** tätä kykyä ja julistaa 'tasoituksen'. Jos teet näin, ja kortit paljastuvat *eriarvoisiksi* hyökkäyskorteiksi, suuremmasta kortista vähennetään pienemmän arvo. Jos siis kortit olivat 15 ja 08, kortti 15 muuttuu 07:ksi ja 08 pysyy ennallaan. Yhteenoton tulos ratkaistaan tämän jälkeen normaalisti." },
+{ "type": "alien", "name": "Chosen", "color": "green", "summary": "Ottaa uuden yhteenottokortin", "who": "Main", "when": "Reveal", "mandatory": "no", "text": "**Sinulla on kyky kutsua yliluonnollista apua.** Yhteenottokorttien paljastamisen jälkeen **_voit käyttää_** tätä kykyä ja pyytää apua korkeammalta yhden kerran jokaisessa yhteenotossa. Ota kolme korttia pakasta. Jos yksikään ei ole yhteenottokortti, pistä kortit poistopakkaan (apua ei tule). Jos nostat yhteenottokortin, voit korvata alkuperäisen paljastamasi kortin sillä (alkuperäinen menee poistopakkaan). Jos alkuperäinen korttisi on hyökkäys ja valitset toisen hyökkäyskortin avuksi, tämä yliluonnollinen apu voi joko korvata tai sen arvon voi lisätä alkuperäiseen korttiisi (saat valita). Kaikki muut avuksi nostetut kortit laitetaan poistopakkaan ja yhteenotto ratkaistaan uuden kortin tai uuden yhteistuloksen avulla." },
+{ "type": "alien", "name": "Citadel", "color": "red", "summary": "Rakentaa planeetoille linnoituksia", "who": "Any", "when": "Planning", "mandatory": "no", "text": "**Sinulla on kyky linnoittaa.** Jokaisessa yhteenotossa, kun kohtalokortti on katsottu, voit pelata kädestäsi hyökkäyskortin arvopuoli ylöspäin minkä tahansa planeetan viereen linnoitukseksi. Jos planeetta, jolla on yksi tai useampi linnoitus, joutuu kohteeksi, **_voit käyttää_** kykyäsi ennen yhteenottokorttien paljastamista  ja aktivoida kaikki kohdeplaneetan linnoitukset. Jos teet niin, lisää linnoitusten arvot puolustuksen tulokseen tässä yhteenotossa. Jos aktivoit planeetan linnoitukset ja puolustus häviää, laita linnoitukset poistopakkaan. Muussa tapauksessa ne jäävät paikoilleen. Jos planeetta tuhoutuu tai alien-arkki poistuu pelistä, pistä *kaikki* linnoitukset poistopakkaan." },
+{ "type": "alien", "name": "Clone", "color": "green", "summary": "Pitää oman yhteenottokorttinsa", "who": "Main", "when": "Resolution", "mandatory": "no", "text": "**Sinulla on kyky monistua.** Kun yhteenoton tulos on selvillä (ennen korvauksen ottamista), **_voit käyttää_** tätä kykyä ja lisätä  sinun puolesi yhteenottokortin käteesi, sen sijaan, että se laitettaisiin poistopakkaan." },
+{ "type": "alien", "name": "Cudgel", "color": "green", "summary": "Vastustaja menettää enemmän aluksia", "who": "Main", "when": "Resolution", "mandatory": "yes", "text": "**Sinulla on kyky murskata.** Kun voitat yhteenoton, jossa pelasit hyökkäyskortin, **_käytä_** tätä kykyä ja pakota vastustajasi menettämään yhtä monta itse valitsemaansa alusta, kuin sinulla oli yhteenotossa. Hän menettää nämä alukset sekä ne, jotka normaalisti menettäisi." },
+{ "type": "alien", "name": "Dictator", "color": "red", "summary": "Hallitsee Destiny-pakkaa", "who": "Not Offense", "when": "Destiny", "mandatory": "yes", "text": "**Sinulla on kyky olla komentaja.** Ennen destiny-kortin nostamista, **_käytä_** tätä kykyä: ota destiny-pakka, katso se läpi ja valitse yksi kortti. Tuo kortti pelataan aivan kuin hyökkääjä olisi itse sen nostanut.  Sinun vuorollasi, tai milloin vain kykysi zap'ätään, jäljellä olevat destiny-kortit sekoitetaan ja pelataan satunnainen kortti." },
+{ "type": "alien", "name": "Fido", "color": "yellow", "summary": "Noutaa pois heitetyt kortit", "who": "Any", "when": "Resolution", "mandatory": "no", "text": "**Sinulla on kyky noutaa.** Kun yhteenottokortit laitetaan poistopakkaan yhteenoton lopuksi, **_voit käyttää_** tätä kykyä ja ottaa yhden poisheitetyn yhteenottokortin ja tarjota sitä toiselle pelaajalle. Jos hän ei hyväksi voit pitää sen tai laittaa poistopakkaan. Jos hän hyväksyy kortin, hän pitää sen ja sinä voit ottaa joko yhden aluksesi warpista tai kortin pakasta. (Voit noutaa vain yhteenottokortin, jota käytettiin yhteenoton ratkaisemisessa, et sellaista, joka pistettiin pois muusta syystä)." },
+{ "type": "alien", "name": "Filch", "color": "green", "summary": "Ottaa vastustajan käytetyn kortin", "who": "Main", "when": "Resolution", "mandatory": "no", "text": "**Sinulla on kyky varastaa.** Kun yhteenotto kortit laitetaan poistopakkaan yhteenoton lopuksi,  **_voit käyttää_** tätä kykyä ja ottaa vastustajasi kortin poistopakasta käteesi. (Jos vastustajasi yhteenottokortti vaihtui johonkin toiseen, voit ottaa kortin, jonka hän pelasi viimeisimpänä.)" }];
 
 
-const artifactData = [{"name":"Card Zap","who":"Any","when":"Any","text":"**Mitätöi kortin.** Tämän kortin voi pelata milloin vain ja mitätöidä flaren tai artefaktin sillä hetkellä, kun toinen pelaaja yrittää sellaista käyttää. Mitätöity flare tai artefakti täytyy laittaa poistopakkaan."},
-{"name":"Cosmic Zap","who":"Any","when":"Any","text":"**Pysäyttää kyvyn.** Pelaa milloin tahansa peruuttamaan jonkin alienin kyvyn, mukaan lukien omasi. Tätä kykyä ei saa käyttää uudelleen nykyisen yhteenoton aikana."},
-{"name":"Emotion Control","who":"Any","when":"Reveal","text":"**Muuttaa hyökkäystä.** Pelaa, kun yhteenottokortit on paljastettu ja tämän jälkeen kaikki hyökkäyskortit ovat neuvottelukortteja. Pääpelaajien on sitten pyrittävä tekemään sopimus."},
-{"name":"Force Field","who":"Any","when":"Alliance","text":"**Pysäyttää liittolaiset.** Pelaa sen jälkeen, kun liittoutumat on muodostettu ja peruuta jonkun tai kaikkien pelaajien liittoutumat. Peruutetut liittolaiset palauttavat aluksensa mihin tahansa siirtokuntaansa."},
-{"name":"Ion Gas","who":"Any","when":"Resolution","text":"**Estää korvaukset ja palkkiot.** Pelaa sen jälkeen, kun yhteenoton voittaja on määritetty. Mitään korvausta tai palkkioita ei voi kerätä tässä yhteenotossa."},
-{"name":"Mobius Tubes","who":"Offence","when":"Regroup","text":"**Vapauttaa alukset.** Pelaa heti yhteenottosi alussa vapauttamalla kaikkien pelaajien alukset warpista. Vapaat alukset palaavat mihin tahansa omistajiensa siirtokuntiin."},
-{"name":"Plague","who":"Any","when":"Regroup","text":"**Vahingoittaa pelaajaa.** Pelaa yhteenoton alussa ja valitse pelaaja (jopa itsesi). Valittu pelaaja menettää kolme alusta valintansa mukaan, ja hän poistaa kädestään yhden kortin jokaista tyyppiä  (hyökkäys, neuvottelu, morph, artifact, flare.. )."},
-{"name":"Quash","who":"Any","when":"Resolution","text":"**Pilaa neuvottelut.** Pelaa onnistuneen neuvottelun jälkeen ja pura sopimus. Neuvottelijat kärsivät rangaistuksen epäonnistuneesta sopimuksesta."}];
+const artifactData = [{"type": "artifact", "name":"Card Zap","who":"Any","when":"Any","text":"**Mitätöi kortin.** Tämän kortin voi pelata milloin vain ja mitätöidä flaren tai artefaktin sillä hetkellä, kun toinen pelaaja yrittää sellaista käyttää. Mitätöity flare tai artefakti täytyy laittaa poistopakkaan."},
+{"type": "artifact", "name":"Cosmic Zap","who":"Any","when":"Any","text":"**Pysäyttää kyvyn.** Pelaa milloin tahansa peruuttamaan jonkin alienin kyvyn, mukaan lukien omasi. Tätä kykyä ei saa käyttää uudelleen nykyisen yhteenoton aikana."},
+{"type": "artifact", "name":"Emotion Control","who":"Any","when":"Reveal","text":"**Muuttaa hyökkäystä.** Pelaa, kun yhteenottokortit on paljastettu ja tämän jälkeen kaikki hyökkäyskortit ovat neuvottelukortteja. Pääpelaajien on sitten pyrittävä tekemään sopimus."},
+{"type": "artifact", "name":"Force Field","who":"Any","when":"Alliance","text":"**Pysäyttää liittolaiset.** Pelaa sen jälkeen, kun liittoutumat on muodostettu ja peruuta jonkun tai kaikkien pelaajien liittoutumat. Peruutetut liittolaiset palauttavat aluksensa mihin tahansa siirtokuntaansa."},
+{"type": "artifact", "name":"Ion Gas","who":"Any","when":"Resolution","text":"**Estää korvaukset ja palkkiot.** Pelaa sen jälkeen, kun yhteenoton voittaja on määritetty. Mitään korvausta tai palkkioita ei voi kerätä tässä yhteenotossa."},
+{"type": "artifact", "name":"Mobius Tubes","who":"Offence","when":"Regroup","text":"**Vapauttaa alukset.** Pelaa heti yhteenottosi alussa vapauttamalla kaikkien pelaajien alukset warpista. Vapaat alukset palaavat mihin tahansa omistajiensa siirtokuntiin."},
+{"type": "artifact", "name":"Plague","who":"Any","when":"Regroup","text":"**Vahingoittaa pelaajaa.** Pelaa yhteenoton alussa ja valitse pelaaja (jopa itsesi). Valittu pelaaja menettää kolme alusta valintansa mukaan, ja hän poistaa kädestään yhden kortin jokaista tyyppiä  (hyökkäys, neuvottelu, morph, artifact, flare.. )."},
+{"type": "artifact", "name":"Quash","who":"Any","when":"Resolution","text":"**Pilaa neuvottelut.** Pelaa onnistuneen neuvottelun jälkeen ja pura sopimus. Neuvottelijat kärsivät rangaistuksen epäonnistuneesta sopimuksesta."}];
 
 const cosmicDb = [
     {title:'Alien', data:cosmicAliensData},
@@ -119,37 +119,43 @@ const cosmicDb = [
 ];
 
 class CosmicDataContainer extends Component {
+  getCosmicComponent(data) {
+    if (data === undefined) return (<div></div>);
 
-  getAlienSheet = () => {
-    let alienDataResult = _.filter(_.propEq("name", this.props.alienName), cosmicAliensData);
-    if (alienDataResult.length === 0) return (<div></div>);
+    switch (data.type) {
+      case "alien": return (<AlienSheet alienData={data} />);
+      case "artifact": return (<ArtifactCard artifact={data} />);
+      default: return (<div></div>);
 
-    return (
-      <AlienSheet
-        alienData={alienDataResult[0]}
-      />
-    );
+    }
+
   }
 
   render() {
 
-    if (this.props.alienName == null) return (<div></div>);
 
-    let isWild = _.whereEq({ "name": this.props.alienName, "power": "Wild" });
-    let isSuper = _.whereEq({ "name": this.props.alienName, "power": "Super" });
+        //<ArtifactCard artifact={artifactData} />
+/*
+
+    if (this.props.cosmicData == null) return (<div></div>);
+
+    let isWild = _.whereEq({ "name": this.props.cosmicData, "power": "Wild" });
+    let isSuper = _.whereEq({ "name": this.props.cosmicData, "power": "Super" });
 
     let wildFlareCard = _.filter(isWild, cosmicFlaresData)[0];
     let superFlareCard = _.filter(isSuper, cosmicFlaresData)[0];
-        //<ArtifactCard artifact={artifactData} />
-
-    return (
-      <div>
-
         <FlareCard
           wildFlare={wildFlareCard}
           superFlare={superFlareCard}
         />
         {this.getAlienSheet()}
+
+*/
+    return (      
+      <div>
+        {this.getCosmicComponent(this.props.cosmicData)}
+
+
 
       </div>
     );
@@ -228,7 +234,7 @@ class App extends Component {
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
+    this.setState({      
       suggestions: getSuggestions(value)
     });
   };
@@ -239,9 +245,9 @@ class App extends Component {
     });
   };
 
-  onSuggestionSelected = (event, { suggestionValue }) => {
+  onSuggestionSelected = (event, input) => {
     this.setState({
-      flareCardShown: suggestionValue
+      cosmicDataObject: input.suggestion
     });
   };
 
@@ -270,7 +276,7 @@ class App extends Component {
         />
 
 
-        <CosmicDataContainer alienName={this.state.flareCardShown} />
+        <CosmicDataContainer cosmicData={this.state.cosmicDataObject} />
 
       </div>
 
