@@ -1,0 +1,10 @@
+.sheet-text {
+    font-family: 'Lora', serif;
+    font-size: 0.95em;
+    line-height: 1.5em;
+    letter-spacing: 0.2px;
+}
+
+div.sheet {
+    box-shadow: inset 0px 0px 38px 0px rgba(0,0,0,0.62);
+}
