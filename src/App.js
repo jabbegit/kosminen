@@ -123,40 +123,32 @@ class CosmicDataContainer extends Component {
     if (data === undefined) return (<div></div>);
 
     switch (data.type) {
-      case "alien": return (<AlienSheet alienData={data} />);
+      case "alien": return this.getAlienComponent(data);
       case "artifact": return (<ArtifactCard artifact={data} />);
       default: return (<div></div>);
-
     }
-
   }
 
-  render() {
-
-
-        //<ArtifactCard artifact={artifactData} />
-/*
-
-    if (this.props.cosmicData == null) return (<div></div>);
-
-    let isWild = _.whereEq({ "name": this.props.cosmicData, "power": "Wild" });
-    let isSuper = _.whereEq({ "name": this.props.cosmicData, "power": "Super" });
+  getAlienComponent(data) {
+    let isWild = _.whereEq({ "name": data.name, "power": "Wild" });
+    let isSuper = _.whereEq({ "name": data.name, "power": "Super" });
 
     let wildFlareCard = _.filter(isWild, cosmicFlaresData)[0];
     let superFlareCard = _.filter(isSuper, cosmicFlaresData)[0];
-        <FlareCard
-          wildFlare={wildFlareCard}
-          superFlare={superFlareCard}
-        />
-        {this.getAlienSheet()}
 
-*/
+    return (
+      <div>
+        <FlareCard wildFlare={wildFlareCard} superFlare={superFlareCard} />
+        <br/>
+        <AlienSheet alienData={data} />
+      </div>
+    );
+  }
+
+  render() {
     return (      
       <div>
         {this.getCosmicComponent(this.props.cosmicData)}
-
-
-
       </div>
     );
   }
@@ -247,6 +239,7 @@ class App extends Component {
 
   onSuggestionSelected = (event, input) => {
     this.setState({
+      value:'',
       cosmicDataObject: input.suggestion
     });
   };
