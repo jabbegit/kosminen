@@ -12,14 +12,15 @@ class ArtifactCard extends Component {
     return (
       <div className="artifact-card">
         <div className="card-caption">
-          <span>Artifact</span>
+          <span>Artefakti</span>
         </div>
-        <div className="artifact-content">
-          <span className="small-caps centered">{artifact.name}</span>
+        <div className="card-content">
+          <div className="small-caps">{artifact.name}</div>
           <ReactMarkdown
             className="sheet-text"
             source={artifact.text}
           />
+          <PlayerInfo player={artifact.who} when={artifact.when} />
         </div>
       </div>
     );

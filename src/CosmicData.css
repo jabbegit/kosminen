@@ -13,3 +13,12 @@ div.card-border {
 .white {
     color: whitesmoke;
 }
+
+div.card-content {
+  background: #fcfcfc;
+  border-radius: 1em;
+  border: 2px solid gray;
+  padding: 15px;
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  text-align: center;
+}
